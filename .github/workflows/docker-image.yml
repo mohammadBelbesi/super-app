@@ -23,7 +23,7 @@ jobs:
       run: docker build ./php --tag mohammadbelbesi99/super-app-php:${{ github.run_number}}-${{ github.sha }}
 
     - name: login to docker hub
-      run: docker login -u ${{DOCKER_HUB_USER_NAME}} -p ${{DOCKER_HUB_PASSWORD}}
+      run: docker login -u ${{ secrets.DOCKER_HUB_USER_NAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
     
     - name: Push node docker image to registry
       run:  docker push mohammadbelbesi99/super-app-node:${{ github.run_number}}-${{ github.sha }}
