@@ -14,10 +14,7 @@ jobs:
 
     steps:
     - name: checkout the code
-    - uses: actions/checkout@v3
+      uses: actions/checkout@v3
     
     - name: Build the node Docker image
       run: docker build ./node --tag mohammadbelbesi99/super-app-node:${{ github-run_number}}-${{ github.sha }}
-
-    - name: Build the php Docker image
-      run: docker build ./php --tag mohammadbelbesi99/super-app-php:${{ github-run_number}}-${{ github.sha }}
