@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0.28
+    environment:
+      MYSQL_DATABASE: 'super-app'
+      MYSQL_ROOT_PASSWORD: 'password'
+    restart: always
+    ports:
+      - "3306:3306"
+    networks:
+      - backend
+
+  node:
+    build:
+      context: ./node
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - backend
+
+  php:
+    build:
+      context: ./php
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
