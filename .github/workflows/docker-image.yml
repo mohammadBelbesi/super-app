@@ -6,15 +6,14 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
+
 jobs:
-
   CI:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: checkout the code
+    - name: Checkout the code
       uses: actions/checkout@v3
     
     - name: Build the node Docker image
-      run: docker build ./node --tag mohammadbelbesi99/super-app-node:${{ github-run_number}}-${{ github.sha }}
+      run: docker build ./node --tag mohammadbelbesi99/super-app-node:${{ github.run_number}}-${{ github.sha }}
