@@ -16,19 +16,19 @@ jobs:
       
       - name: Build the node docker image
         run: |
-          docker build ./node --tag mohammadbelbesi99/super-app-node:${{ github.run_number}}-${{ github.sha }}
-          docker tag mohammadbelbesi99/super-app-node:${{ github.run_number}}-${{ github.sha }} mohammadbelbesi99/super-app-node:latest
+          docker build ./node --tag mohammadbelbesi99/super-app-node:latest
+          docker tag mohammadbelbesi99/super-app-node:latest mohammadbelbesi99/super-app-node:custom_tag_name
       
       - name: Build the php docker image
         run: |
-          docker build ./php --tag mohammadbelbesi99/super-app-php:${{ github.run_number}}-${{ github.sha }}
-          docker tag mohammadbelbesi99/super-app-php:${{ github.run_number}}-${{ github.sha }} mohammadbelbesi99/super-app-php:latest
+          docker build ./php --tag mohammadbelbesi99/super-app-php:latest
+          docker tag mohammadbelbesi99/super-app-php:latest mohammadbelbesi99/super-app-php:custom_tag_name
       
       - name: login to docker hub
         run: docker login -u ${{ secrets.DOCKER_HUB_USER_NAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
       
       - name: Push node docker image to registry
-        run: docker push mohammadbelbesi99/super-app-node:${{ github.run_number}}-${{ github.sha }}
+        run: docker push mohammadbelbesi99/super-app-node:custom_tag_name
       
       - name: Push php docker image to registry
-        run: docker push mohammadbelbesi99/super-app-php:${{ github.run_number}}-${{ github.sha }}
+        run: docker push mohammadbelbesi99/super-app-php:custom_tag_name
