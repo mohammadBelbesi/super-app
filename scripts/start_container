@@ -1,3 +1,3 @@
 #!/bin/bash
-docker run --name super-app-php-container -d -p 80:80 mohammadbelbesi99/super-app-php
-docker run --name super-app-node-container -d -p 3000:3000 mohammadbelbesi99/super-app-node
+docker run --name super-app-php-container -d -p 80:80 mohammadbelbesi99/super-app-php:17-ef711fd4594d52a8e8851868e39e46c55c9cc115
+docker run --name super-app-node-container -d -p 3000:3000 mohammadbelbesi99/super-app-node:17-ef711fd4594d52a8e8851868e39e46c55c9cc115
