@@ -1,5 +1,5 @@
 #!/bin/bash
-docker stop super-app-php-container
-docker rm super-app-php-container
-docker stop super-app-node-container
-docker rm super-app-node-container
+docker stop super-app-php
+docker rm super-app-php
+docker stop super-app-node
+docker rm super-app-node
